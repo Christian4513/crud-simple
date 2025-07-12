@@ -1,35 +1,76 @@
 import { useState } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+  getUsers,
+  createUser,
+  updateUser,
+  deleteUser,
+} from "./api"; // importa tus funciones axios
+
 import UserForm from "./components/UserForm";
 import UserList from "./components/UserList";
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const queryClient = useQueryClient();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
   const [editId, setEditId] = useState(null);
   const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");
 
-  const addUser = () => {
-    if (name.trim() && email.trim()) {
-      setUsers([...users, { id: Date.now(), name, email }]);
+
+  const { data: users = [], isLoading, isError } = useQuery({
+    queryKey: ["users"],
+    queryFn: getUsers,
+  });
+
+
+  const createMutation = useMutation({
+    mutationFn: createUser,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["users"] }); // Refresca la lista
       setName("");
       setEmail("");
+    },
+  });
+
+
+  const updateMutation = useMutation({
+    mutationFn: updateUser,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+      setEditId(null);
+      setEditName("");
+      setEditEmail("");
+    },
+  });
+
+
+  const deleteMutation = useMutation({
+    mutationFn: deleteUser,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+    },
+  });
+
+  const addUser = () => {
+    if (name.trim() && email.trim()) {
+      createMutation.mutate({ name, email });
     }
   };
 
   const saveEdit = (id) => {
-    setUsers(users.map((u) =>
-      u.id === id ? { ...u, name: editName, email: editEmail } : u
-    ));
-    setEditId(null);
-    setEditName("");
-    setEditEmail("");
+    updateMutation.mutate({ id, name: editName, email: editEmail });
   };
 
-  const deleteUser = (id) => {
-    setUsers(users.filter((u) => u.id !== id));
+  const deleteUserById = (id) => {
+    deleteMutation.mutate(id);
   };
+
+  if (isLoading) return <p className="text-center">Cargando usuarios...</p>;
+  if (isError) return <p className="text-red-500 text-center">Error al cargar usuarios</p>;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-sky-600 to-cyan-400">
@@ -53,7 +94,7 @@ function App() {
           setEditName={setEditName}
           setEditEmail={setEditEmail}
           onSaveEdit={saveEdit}
-          onDelete={deleteUser}
+          onDelete={deleteUserById}
         />
       </div>
     </div>

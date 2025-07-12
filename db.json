@@ -1,6 +1,49 @@
 {
   "users": [
-    { "id": 1, "name": "Juan Pérez", "email": "juan@mail.com" },
-    { "id": 2, "name": "Ana Gómez", "email": "ana@mail.com" }
+    {
+      "id": "2",
+      "name": "Ana Gómez",
+      "email": "ana@mail.com"
+    },
+    {
+      "id": "3",
+      "name": "Carlos Rojas",
+      "email": "carlos.rojas@mail.com"
+    },
+    {
+      "id": "4",
+      "name": "María Gonzalez",
+      "email": "mariaf@mail.com"
+    },
+    {
+      "id": "5",
+      "name": "Luis Torres",
+      "email": "luis.torres@mail.com"
+    },
+    {
+      "id": "6",
+      "name": "Valentina",
+      "email": "valentina.soto@mail.com"
+    },
+    {
+      "id": "7",
+      "name": "Pedro",
+      "email": "pedro.navarro@mail.com"
+    },
+    {
+      "id": "e3e4",
+      "name": "hola helou",
+      "email": "hola@gmail.com"
+    },
+    {
+      "id": "9ab8",
+      "name": "Christian Fuentes",
+      "email": "hola@gmail.com"
+    },
+    {
+      "id": "0de7",
+      "name": "Christian Patricio Fuentes",
+      "email": "cfuentesfuentes@gmail.com"
+    }
   ]
 }
