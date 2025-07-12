@@ -24,7 +24,7 @@ function UserForm({ name, email, setName, setEmail, onAddUser }) {
       />
       <button
         type="submit"
-        className="w-full bg-sky-500 text-white py-2 rounded hover:bg-sky-600 sm:col-span-2"
+        className="w-full bg-sky-600 text-white py-2 rounded hover:bg-sky-500 sm:col-span-2"
       >
         Agregar usuario
       </button>
