@@ -44,6 +44,11 @@
       "id": "0de7",
       "name": "Christian Patricio Fuentes",
       "email": "cfuentesfuentes@gmail.com"
+    },
+    {
+      "id": "288a",
+      "name": "Test User",
+      "email": "test@example.com"
     }
   ]
 }

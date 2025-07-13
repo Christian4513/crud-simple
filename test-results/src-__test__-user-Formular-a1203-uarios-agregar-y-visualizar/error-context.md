@@ -1,0 +1,49 @@
+# Page snapshot
+
+```yaml
+- heading "Lista de Usuarios" [level=1]
+- textbox "Nombre"
+- textbox "Correo"
+- button "Agregar usuario"
+- list:
+  - listitem:
+    - text: Ana Gómez ana@mail.com
+    - button "Editar"
+    - button "Eliminar"
+  - listitem:
+    - text: Carlos Rojas carlos.rojas@mail.com
+    - button "Editar"
+    - button "Eliminar"
+  - listitem:
+    - text: María Gonzalez mariaf@mail.com
+    - button "Editar"
+    - button "Eliminar"
+  - listitem:
+    - text: Luis Torres luis.torres@mail.com
+    - button "Editar"
+    - button "Eliminar"
+  - listitem:
+    - text: Valentina valentina.soto@mail.com
+    - button "Editar"
+    - button "Eliminar"
+  - listitem:
+    - text: Pedro pedro.navarro@mail.com
+    - button "Editar"
+    - button "Eliminar"
+  - listitem:
+    - text: hola helou hola@gmail.com
+    - button "Editar"
+    - button "Eliminar"
+  - listitem:
+    - text: Christian Fuentes hola@gmail.com
+    - button "Editar"
+    - button "Eliminar"
+  - listitem:
+    - text: Christian Patricio Fuentes cfuentesfuentes@gmail.com
+    - button "Editar"
+    - button "Eliminar"
+  - listitem:
+    - text: Test User test@example.com
+    - button "Editar"
+    - button "Eliminar"
+```

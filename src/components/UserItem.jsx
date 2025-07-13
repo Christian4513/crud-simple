@@ -16,7 +16,7 @@ function UserItem({
     };
 
     return (
-        <li className="flex flex-col sm:flex-row sm:items-center justify-between bg-gray-100 p-4 rounded shadow">
+        <li data-testid="user-item" className="flex flex-col sm:flex-row sm:items-center justify-between bg-gray-100 p-4 rounded shadow">
             {editId === user.id ? (
 
                 <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
